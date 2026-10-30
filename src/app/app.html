@@ -1,0 +1,62 @@
+<!-- Barra de navegação persistente mantida fora do router-outlet para evitar destruição/recriação na troca de rotas -->
+<nav class="bg-slate-900 text-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between py-3 gap-4">
+      <span class="text-lg font-bold tracking-tight text-blue-400">SistemaRH</span>
+
+      <!-- Diretiva routerLink intercepta o evento click nativo da tag <a>, atualiza a History API e impede o reload HTTP -->
+      <!-- routerLinkActiveOptions="{ exact: true }" exige match completo da árvore de URL para não ativar '/funcionarios' quando a rota for '/funcionarios/novo' -->
+      <div class="flex flex-wrap items-center gap-2 text-sm font-medium">
+        <a
+          routerLink="/login"
+          routerLinkActive="bg-blue-600 text-white"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Login
+        </a>
+        <a
+          routerLink="/cadastro"
+          routerLinkActive="bg-blue-600 text-white"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Cadastro
+        </a>
+        <a
+          routerLink="/funcionarios"
+          routerLinkActive="bg-blue-600 text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Lista de funcionários
+        </a>
+        <a
+          routerLink="/funcionarios/novo"
+          routerLinkActive="bg-blue-600 text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Novo funcionário
+        </a>
+        <a
+          routerLink="/enderecos"
+          routerLinkActive="bg-blue-600 text-white"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Endereços
+        </a>
+        <a
+          routerLink="/contatos"
+          routerLinkActive="bg-blue-600 text-white"
+          class="px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          Contatos
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Container principal onde o RouterOutlet instancia e destrói dinamicamente o componente correspondente à rota ativa -->
+<main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+  <router-outlet></router-outlet>
+</main>

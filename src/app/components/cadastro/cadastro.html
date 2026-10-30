@@ -1,0 +1,80 @@
+<!-- Estrutura espelhada na paleta e tipografia do componente Login para consistência visual e responsividade mobile (Etapa 10) -->
+<div class="flex items-center justify-center min-h-[calc(100vh-8rem)] px-4">
+  <div class="w-full max-w-md bg-white p-6 rounded-lg shadow border border-slate-200">
+    <!-- Título exigido pela especificação -->
+    <div class="mb-6 text-center">
+      <h1 class="text-2xl font-bold text-slate-900">Criar conta</h1>
+      <p class="text-sm text-slate-600 mt-1">SistemaRH — Cadastro de usuário</p>
+    </div>
+
+    <!-- Campos dispostos em coluna com espaçamento vertical space-y-4 -->
+    <form class="space-y-4">
+      <!-- Campo de nome com label explícito visível -->
+      <div>
+        <label for="cadastro-nome" class="block text-sm font-medium text-slate-700 mb-1">
+          Nome completo
+        </label>
+        <input
+          id="cadastro-nome"
+          type="text"
+          placeholder="Digite seu nome completo"
+          class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        />
+      </div>
+
+      <!-- Campo de e-mail -->
+      <div>
+        <label for="cadastro-email" class="block text-sm font-medium text-slate-700 mb-1">
+          E-mail
+        </label>
+        <input
+          id="cadastro-email"
+          type="email"
+          placeholder="usuario@empresa.com.br"
+          class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        />
+      </div>
+
+      <!-- Campo de senha -->
+      <div>
+        <label for="cadastro-senha" class="block text-sm font-medium text-slate-700 mb-1">
+          Senha
+        </label>
+        <input
+          id="cadastro-senha"
+          type="password"
+          placeholder="••••••••"
+          class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        />
+      </div>
+
+      <!-- Campo de confirmação de senha (apenas visual nesta etapa, sem validação cruzada em memória) -->
+      <div>
+        <label for="cadastro-confirmar-senha" class="block text-sm font-medium text-slate-700 mb-1">
+          Confirmação de senha
+        </label>
+        <input
+          id="cadastro-confirmar-senha"
+          type="password"
+          placeholder="••••••••"
+          class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        />
+      </div>
+
+      <!-- Botão com type="button" para impedir submissão HTTP ou recarregamento da página -->
+      <button
+        type="button"
+        class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2.5 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 cursor-pointer"
+      >
+        Cadastrar
+      </button>
+    </form>
+
+    <!-- Link de navegação de retorno para /login -->
+    <div class="mt-6 text-center text-sm text-slate-600">
+      <a routerLink="/login" class="text-blue-600 hover:text-blue-800 hover:underline font-medium">
+        Já possui uma conta? Entre
+      </a>
+    </div>
+  </div>
+</div>

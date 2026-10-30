@@ -1,0 +1,2 @@
+/* Importa as camadas base, components e utilities do TailwindCSS no bundle global de estilos */
+@import "tailwindcss";
