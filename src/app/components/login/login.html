@@ -9,7 +9,7 @@
     </div>
 
     <!-- Formulário visual empilhado em coluna única com espaçamento vertical uniforme (space-y-4) -->
-    <form class="space-y-4">
+    <form class="space-y-4" [formGroup]="form" (ngSubmit)="entrar()">
       <!-- Campo de e-mail com label vinculado por atributo for/id e validação semântica nativa type="email" -->
       <div>
         <label for="login-email" class="block text-sm font-medium text-slate-700 mb-1">
@@ -17,7 +17,7 @@
         </label>
         <input
           id="login-email"
-          type="email"
+          type="email" formControlName="email"
           placeholder="usuario@empresa.com.br"
           class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
         />
@@ -30,18 +30,24 @@
         </label>
         <input
           id="login-senha"
-          type="password"
+          type="password" formControlName="senha"
           placeholder="••••••••"
           class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
         />
       </div>
 
+      @if (erro()) {
+        <p class="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{{
+        erro() }}</p>
+      }
+
       <!-- type="button" bloqueia o disparo do evento submit nativo do form, mantendo ação puramente visual nesta etapa -->
       <button
-        type="button"
+        type="submit"
+        [disabled]="carregando()"
         class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2.5 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 cursor-pointer"
       >
-        Entrar
+        {{ carregando() ? 'Entrando...' : 'Entrar' }}
       </button>
     </form>
 
